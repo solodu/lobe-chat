@@ -13,7 +13,7 @@ import { getAntdLocale } from '@/utils/locale';
 
 import AppTheme from './AppTheme';
 import Locale from './Locale';
-import StoreHydration from './StoreHydration';
+import StoreInitialization from './StoreInitialization';
 import StyleRegistry from './StyleRegistry';
 
 let DebugUI: FC = () => null;
@@ -44,17 +44,17 @@ const GlobalLayout = async ({ children }: GlobalLayoutProps) => {
 
   return (
     <StyleRegistry>
-      <AppTheme
-        defaultAppearance={appearance?.value}
-        defaultNeutralColor={neutralColor?.value as any}
-        defaultPrimaryColor={primaryColor?.value as any}
-      >
-        <Locale antdLocale={antdLocale} defaultLang={defaultLang?.value}>
-          <StoreHydration />
+      <Locale antdLocale={antdLocale} defaultLang={defaultLang?.value}>
+        <AppTheme
+          defaultAppearance={appearance?.value}
+          defaultNeutralColor={neutralColor?.value as any}
+          defaultPrimaryColor={primaryColor?.value as any}
+        >
+          <StoreInitialization />
           {children}
           <DebugUI />
-        </Locale>
-      </AppTheme>
+        </AppTheme>
+      </Locale>
     </StyleRegistry>
   );
 };

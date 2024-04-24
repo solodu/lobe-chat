@@ -8,9 +8,15 @@
   "clearCurrentMessages": "Xóa tin nhắn hiện tại",
   "confirmClearCurrentMessages": "Bạn sắp xóa tin nhắn hiện tại. Hành động này không thể hoàn tác, vui lòng xác nhận.",
   "confirmRemoveSessionItemAlert": "Bạn sắp xóa trợ lý này. Hành động này không thể hoàn tác, vui lòng xác nhận.",
+  "confirmRemoveSessionSuccess": "Xóa trợ lý thành công",
   "defaultAgent": "Trợ lý mặc định",
   "defaultList": "Danh sách mặc định",
   "defaultSession": "Trợ lý mặc định",
+  "duplicateSession": {
+    "loading": "Đang sao chép...",
+    "success": "Sao chép thành công",
+    "title": "{{title}} Bản sao"
+  },
   "duplicateTitle": "{{title}} Bản sao",
   "historyRange": "Phạm vi lịch sử",
   "inbox": {
@@ -42,13 +48,17 @@
   "sessionGroup": {
     "config": "Quản lý nhóm",
     "confirmRemoveGroupAlert": "Bạn sẽ xóa nhóm này, sau khi xóa, trợ lý của nhóm sẽ được di chuyển vào danh sách mặc định, vui lòng xác nhận hành động của bạn",
+    "createAgentSuccess": "Tạo trợ lý thành công",
     "createGroup": "Thêm nhóm mới",
     "createSuccess": "Tạo thành công",
+    "creatingAgent": "Đang tạo trợ lý...",
     "inputPlaceholder": "Vui lòng nhập tên nhóm...",
     "moveGroup": "Di chuyển vào nhóm",
     "newGroup": "Nhóm mới",
     "rename": "Đổi tên nhóm",
     "renameSuccess": "Đổi tên thành công",
+    "sortSuccess": "Sắp xếp lại thành công",
+    "sorting": "Đang cập nhật sắp xếp nhóm...",
     "tooLong": "Tên nhóm phải có độ dài từ 1-20 ký tự"
   },
   "shareModal": {
@@ -112,9 +122,12 @@
   },
   "updateAgent": "Cập nhật thông tin trợ lý",
   "upload": {
+    "actionFiletip": "Tải lên tập tin",
     "actionTooltip": "Tải lên hình ảnh",
     "disabled": "Mô hình hiện tại không hỗ trợ nhận diện hình ảnh, vui lòng chuyển đổi mô hình trước khi sử dụng",
     "dragDesc": "Kéo và thả tệp vào đây, hỗ trợ tải lên nhiều hình ảnh. Giữ phím Shift để gửi hình ảnh trực tiếp",
+    "dragFileDesc": "Kéo ảnh và tệp vào đây để hỗ trợ tải lên nhiều ảnh và tệp. Giữ phím Shift để gửi hình ảnh hoặc tập tin trực tiếp",
+    "dragFileTitle": "Tải lên tập tin",
     "dragTitle": "Tải lên hình ảnh"
   }
 }
