@@ -22,13 +22,17 @@
       "confirm": "Confirm to reset all settings?",
       "currentVersion": "Current Version",
       "desc": "Reset all settings to default values",
+      "success": "All settings have been reset",
       "title": "Reset All Settings"
     }
   },
   "header": {
+    "desc": "Preferences and model settings.",
     "global": "Global Settings",
     "session": "Session Settings",
-    "sessionWithName": "Session Settings · {{name}}"
+    "sessionDesc": "Role settings and session preferences.",
+    "sessionWithName": "Session Settings · {{name}}",
+    "title": "Settings"
   },
   "llm": {
     "checker": {

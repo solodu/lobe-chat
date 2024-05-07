@@ -22,13 +22,17 @@
       "confirm": "Confirmar a redefinição de todas as configurações?",
       "currentVersion": "Versão Atual",
       "desc": "Redefinir todas as configurações para os valores padrão",
+      "success": "Todas as configurações foram redefinidas com sucesso",
       "title": "Redefinir Todas as Configurações"
     }
   },
   "header": {
+    "desc": "Preferências e configurações do modelo.",
     "global": "Configurações Globais",
     "session": "Configurações de Sessão",
-    "sessionWithName": "Configurações de Sessão · {{name}}"
+    "sessionDesc": "Configurações de personagem e preferências de sessão.",
+    "sessionWithName": "Configurações de Sessão · {{name}}",
+    "title": "Configurações"
   },
   "llm": {
     "checker": {

@@ -4,6 +4,7 @@ import { ClientOptions } from 'openai';
 
 import { OpenAIChatMessage } from '@/libs/agent-runtime';
 import { OllamaStream } from '@/libs/agent-runtime/ollama/stream';
+import { ChatModelCard } from '@/types/llm';
 
 import { LobeRuntimeAI } from '../BaseAI';
 import { AgentRuntimeErrorType } from '../error';
@@ -24,13 +25,20 @@ export class LobeOllamaAI implements LobeRuntimeAI {
       throw AgentRuntimeError.createError(AgentRuntimeErrorType.InvalidOllamaArgs);
     }
 
-    this.client = new Ollama(!baseURL ? undefined : { host: new URL(baseURL).host });
+    this.client = new Ollama(!baseURL ? undefined : { host: baseURL });
 
     if (baseURL) this.baseURL = baseURL;
   }
 
   async chat(payload: ChatStreamPayload, options?: ChatCompetitionOptions) {
     try {
+      const abort = () => {
+        this.client.abort();
+        options?.signal?.removeEventListener('abort', abort);
+      };
+
+      options?.signal?.addEventListener('abort', abort);
+
       const response = await this.client.chat({
         messages: this.buildOllamaMessages(payload.messages),
         model: payload.model,
@@ -57,12 +65,12 @@ export class LobeOllamaAI implements LobeRuntimeAI {
     }
   }
 
-  // async models(): Promise<ChatModelCard[]> {
-  //   const list = await this.client.list();
-  //   return list.models.map((model) => ({
-  //     id: model.name,
-  //   }));
-  // }
+  async models(): Promise<ChatModelCard[]> {
+    const list = await this.client.list();
+    return list.models.map((model) => ({
+      id: model.name,
+    }));
+  }
 
   private buildOllamaMessages(messages: OpenAIChatMessage[]) {
     return messages.map((message) => this.convertContentToOllamaMessage(message));

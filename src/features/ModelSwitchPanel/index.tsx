@@ -9,10 +9,10 @@ import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import { ModelItemRender, ProviderItemRender } from '@/components/ModelSelect';
-import { useGlobalStore } from '@/store/global';
-import { modelProviderSelectors } from '@/store/global/selectors';
-import { useSessionStore } from '@/store/session';
-import { agentSelectors } from '@/store/session/selectors';
+import { useAgentStore } from '@/store/agent';
+import { agentSelectors } from '@/store/agent/slices/chat';
+import { useUserStore } from '@/store/user';
+import { modelProviderSelectors } from '@/store/user/selectors';
 import { ModelProviderCard } from '@/types/llm';
 import { withBasePath } from '@/utils/basePath';
 
@@ -40,14 +40,13 @@ const useStyles = createStyles(({ css, prefixCls }) => ({
 const ModelSwitchPanel = memo<PropsWithChildren>(({ children }) => {
   const { t } = useTranslation('components');
   const { styles, theme } = useStyles();
-  const model = useSessionStore(agentSelectors.currentAgentModel);
-  const updateAgentConfig = useSessionStore((s) => s.updateAgentConfig);
+  const [model, updateAgentConfig] = useAgentStore((s) => [
+    agentSelectors.currentAgentModel(s),
+    s.updateAgentConfig,
+  ]);
 
   const router = useRouter();
-  const enabledList = useGlobalStore(
-    modelProviderSelectors.modelProviderListForModelSelect,
-    isEqual,
-  );
+  const enabledList = useUserStore(modelProviderSelectors.modelProviderListForModelSelect, isEqual);
 
   const items = useMemo(() => {
     const getModelItems = (provider: ModelProviderCard) => {

@@ -22,13 +22,17 @@
       "confirm": "모든 설정을 재설정하시겠습니까?",
       "currentVersion": "현재 버전",
       "desc": "모든 설정을 기본값으로 재설정합니다",
+      "success": "모든 설정이 재설정되었습니다",
       "title": "모든 설정 재설정"
     }
   },
   "header": {
+    "desc": "설정 및 모델 설정.",
     "global": "전역 설정",
     "session": "세션 설정",
-    "sessionWithName": "세션 설정 · {{name}}"
+    "sessionDesc": "캐릭터 설정 및 세션 환경 설정.",
+    "sessionWithName": "세션 설정 · {{name}}",
+    "title": "설정"
   },
   "llm": {
     "checker": {
